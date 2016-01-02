@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titile:</strong>
+  <%= @post.titile %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user_id %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @post.restaurant_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<p>
+  <strong>Time zone:</strong>
+  <%= @post.time_zone %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @post.amount %>
+</p>
+
+<p>
+  <strong>Total eval:</strong>
+  <%= @post.total_eval %>
+</p>
+
+<p>
+  <strong>Quality eval:</strong>
+  <%= @post.quality_eval %>
+</p>
+
+<p>
+  <strong>Service eval:</strong>
+  <%= @post.service_eval %>
+</p>
+
+<p>
+  <strong>Atomos eval:</strong>
+  <%= @post.atomos_eval %>
+</p>
+
+<p>
+  <strong>Drink eval:</strong>
+  <%= @post.drink_eval %>
+</p>
+
+<p>
+  <strong>Partner eval:</strong>
+  <%= @post.partner_eval %>
+</p>
+
+<p>
+  <strong>Visit date:</strong>
+  <%= @post.visit_date %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @post.url %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

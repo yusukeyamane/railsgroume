@@ -1,0 +1,77 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= debug @restaurants %>
+  <div class="field">
+    <%= f.label :titile %><br>
+    <%= f.text_field :titile %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :restaurant_id %><br>
+    <%= f.select :restaurant_id, @restaurants %>
+    <%= link_to 'レストランを追加する', new_restaurant_path %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :time_zone %><br>
+    <%= f.select :time_zone, [['昼', '昼'],['夜','夜']] %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.select :amount, @price_zone %>
+  </div>
+  <div class="field">
+    <%= f.label :total_eval %><br>
+    <%= f.select :total_eval, @evaluation %>
+  </div>
+  <div class="field">
+    <%= f.label :quality_eval %><br>
+    <%= f.select :quality_eval, @evaluation %>
+  </div>
+  <div class="field">
+    <%= f.label :service_eval %><br>
+    <%= f.select :service_eval, @evaluation %>
+  </div>
+  <div class="field">
+    <%= f.label :atomos_eval %><br>
+    <%= f.select :atomos_eval, @evaluation %>
+  </div>
+  <div class="field">
+    <%= f.label :drink_eval %><br>
+    <%= f.select :drink_eval, @evaluation %>
+  </div>
+  <div class="field">
+    <%= f.label :partner_eval %><br>
+    <%= f.select :partner_eval, @evaluation %>
+  </div>
+  <div class="field">
+    <%= f.label :visit_date %><br>
+    <%= f.date_select :visit_date %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <%= fields_for :hashtags do |f_hash| %>
+  <%= f_hash.check_box :couple, checked_value = true, unchecked_value = false %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
