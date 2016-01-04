@@ -67,7 +67,7 @@
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
-  <%= fields_for :hashtag do |h| %>
+  <%= fields_for @post.hashtag do |h| %>
     <div class="field">
       <%= h.label :couple %>
       <%= h.check_box :couple, {}, true, false %>
@@ -121,6 +121,12 @@
       <%= h.check_box :whiteday, {}, true, false %>
     </div>
 
+  <% end %>
+
+  <%= fields_for @post.photos do |p| %>
+    <%= p.file_field :file_name, multiple: true %>
+    <%= p.file_field :file_name, multiple: true %>
+    <%= p.file_field :file_name, multiple: true %>
   <% end %>
 
   <div class="actions">

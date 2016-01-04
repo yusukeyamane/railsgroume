@@ -10,12 +10,13 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-
   end
 
   # GET /posts/new
   def new
     @post = Post.new
+    @post.build_hashtag
+    3.times{@post.photos.build}
   end
 
   # GET /posts/1/edit
@@ -26,9 +27,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.build_hashtag
     respond_to do |format|
-      if @post.save & @post.hashtag.save
+      if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
         logger.debug(@post)
@@ -83,6 +83,6 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       @hash_att = [:couple, :firstdate, :onesidelove, :confession, :lunch, :cafe, :dinner, :aniversary, :oneyear_ani, :onemonth_ani, :xmas, :valentine, :whiteday]
-      params.require(:post).permit(:titile, :user_id, :restaurant_id, :content, :time_zone, :amount, :total_eval, :quality_eval, :service_eval, :atomos_eval, :drink_eval, :partner_eval, :visit_date, :url, hashtag_attributes: @hash_att)
+      params.require(:post).permit(:titile, :user_id, :restaurant_id, :content, :time_zone, :amount, :total_eval, :quality_eval, :service_eval, :atomos_eval, :drink_eval, :partner_eval, :visit_date, :url, hashtag_attributes: @hash_att, photos_attributes: [:file_name])
     end
 end
