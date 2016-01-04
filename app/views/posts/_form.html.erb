@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-  <%= debug @restaurants %>
   <div class="field">
     <%= f.label :titile %><br>
     <%= f.text_field :titile %>
@@ -68,9 +67,62 @@
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
-  <%= fields_for :hashtags do |f_hash| %>
-  <%= f_hash.check_box :couple, checked_value = true, unchecked_value = false %>
+  <%= fields_for :hashtag do |h| %>
+    <div class="field">
+      <%= h.label :couple %>
+      <%= h.check_box :couple, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :firstdate %>
+      <%= h.check_box :firstdate, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :onesidelove %>
+      <%= h.check_box :onesidelove, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :confession %>
+      <%= h.check_box :confession, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :lunch %>
+      <%= h.check_box :lunch, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :cafe %>
+      <%= h.check_box :cafe, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :dinner %>
+      <%= h.check_box :dinner, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :aniversary %>
+      <%= h.check_box :aniversary, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :oneyear_ani %>
+      <%= h.check_box :oneyear_ani, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :onemonth_ani %>
+      <%= h.check_box :onemonth_ani, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :xmas %>
+      <%= h.check_box :xmas, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :valentine %>
+      <%= h.check_box :valentine, {}, true, false %>
+    </div>
+    <div class="field">
+      <%= h.label :whiteday %>
+      <%= h.check_box :whiteday, {}, true, false %>
+    </div>
+
   <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
