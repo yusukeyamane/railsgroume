@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<%= debug(@post) %>
+<%= debug(@post.hashtag) %>
 <p>
   <strong>Titile:</strong>
   <%= @post.titile %>
@@ -11,8 +12,13 @@
 </p>
 
 <p>
-  <strong>Restaurant:</strong>
-  <%= @post.restaurant_id %>
+  <strong>Restaurant Name:</strong>
+  <%= @post.restaurant.name %>
+</p>
+
+<p>
+  <strong>Restaurant Address:</strong>
+  <%= @post.restaurant.address %>
 </p>
 
 <p>
@@ -69,6 +75,22 @@
   <strong>Url:</strong>
   <%= @post.url %>
 </p>
+<p>
+  <%= @post.hashtag.couple %>
+  <%= @post.hashtag.firstdate %>
+  <%= @post.hashtag.onesidelove %>
+  <%= @post.hashtag.confession %>
+  <%= @post.hashtag.lunch %>
+  <%= @post.hashtag.cafe %>
+  <%= @post.hashtag.dinner %>
+  <%= @post.hashtag.aniversary %>
+  <%= @post.hashtag.oneyear_ani %>
+  <%= @post.hashtag.onemonth_ani %>
+  <%= @post.hashtag.xmas %>
+  <%= @post.hashtag.valentine %>
+  <%= @post.hashtag.whiteday %>
+</p>
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
