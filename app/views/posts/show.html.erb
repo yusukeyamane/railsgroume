@@ -1,28 +1,50 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Titile:</strong>
-  <%= @post.titile %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
+<div class="container">
+<!--Start second row of columns-->
+<div class="row">
+  <div class="col-md-8">
+    <h2><%= @post.titile %></h2>
+    <!-- レストラン基本情報 -->
+    <h3><%= @post.restaurant.name %></h3>
+    <a rel="lightbox[secondary]" href="img/starbar.jpg"><img src="img/starbar.jpg" alt="Thumbnail" style="width: 300px; height: 150px;"></a>
+    <p>エリア：大阪・福島</p>
 
-<p>
-  <strong>Restaurant Name:</strong>
-  <%= @post.restaurant.name %>
-</p>
+    <hr>
+
+    <!-- 投稿者基本情報 -->
+    <p>投稿者：近畿大学　文芸学部 4回　男性</p>
+    <p>訪問日：<%= @post.visit_date %></p>
+    
+    <hr>
+
+    <!-- 評価 -->
+    <p>総合評価：<span class="starlevel5 star50">　　　　　　</span>(1)</p>
+    <p>（料理・味<%= @post.quality_eval %>
+    サービス<%= @post.service_eval %>
+    雰囲気<%= @post.atomos_eval %>
+    ドリンク・酒<%= @post.drink_eval %>
+    相手の評価 <%= @post.partner_eval %>
+    ）</p>
+    
+    <p>予算　<%= @post.amount %></p>
+
+    <hr>
+
+    <h4>口コミ</h4>
+    <p><%= @post.content %></p>
+  </div>
+
+  <div class="col-md-4">
+    <%= link_to 'HP', @post.restaurant.url, :class => 'btn' %>
+  </div>  
+</div>
 
 <p>
   <strong>Restaurant Address:</strong>
   <%= @post.restaurant.address %>
 </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
 
 <p>
   <strong>Time zone:</strong>
@@ -30,64 +52,31 @@
 </p>
 
 <p>
-  <strong>Amount:</strong>
-  <%= @post.amount %>
-</p>
-
-<p>
   <strong>Total eval:</strong>
   <%= @post.total_eval %>
 </p>
 
-<p>
-  <strong>Quality eval:</strong>
-  <%= @post.quality_eval %>
-</p>
-
-<p>
-  <strong>Service eval:</strong>
-  <%= @post.service_eval %>
-</p>
-
-<p>
-  <strong>Atomos eval:</strong>
-  <%= @post.atomos_eval %>
-</p>
-
-<p>
-  <strong>Drink eval:</strong>
-  <%= @post.drink_eval %>
-</p>
-
-<p>
-  <strong>Partner eval:</strong>
-  <%= @post.partner_eval %>
-</p>
-
-<p>
-  <strong>Visit date:</strong>
-  <%= @post.visit_date %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @post.url %>
 </p>
 <p>
-  <%= @post.hashtag.couple %>
-  <%= @post.hashtag.firstdate %>
-  <%= @post.hashtag.onesidelove %>
-  <%= @post.hashtag.confession %>
-  <%= @post.hashtag.lunch %>
-  <%= @post.hashtag.cafe %>
-  <%= @post.hashtag.dinner %>
-  <%= @post.hashtag.aniversary %>
-  <%= @post.hashtag.oneyear_ani %>
-  <%= @post.hashtag.onemonth_ani %>
-  <%= @post.hashtag.xmas %>
-  <%= @post.hashtag.valentine %>
-  <%= @post.hashtag.whiteday %>
+  <% if @post.hashtag.present? %>
+    <%= @post.hashtag.couple %>
+    <%= @post.hashtag.firstdate %>
+    <%= @post.hashtag.onesidelove %>
+    <%= @post.hashtag.confession %>
+    <%= @post.hashtag.lunch %>
+    <%= @post.hashtag.cafe %>
+    <%= @post.hashtag.dinner %>
+    <%= @post.hashtag.aniversary %>
+    <%= @post.hashtag.oneyear_ani %>
+    <%= @post.hashtag.onemonth_ani %>
+    <%= @post.hashtag.xmas %>
+    <%= @post.hashtag.valentine %>
+    <%= @post.hashtag.whiteday %>
+  <% end %>
 </p>
+<% @post.photos.each do |photo| %>
+  <%= image_tag(photo.file_name) %>
+<% end %>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

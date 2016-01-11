@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160102074613) do
+ActiveRecord::Schema.define(version: 20160111032908) do
 
   create_table "hashtags", force: :cascade do |t|
     t.boolean  "couple"
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20160102074613) do
     t.integer  "drink_eval"
     t.integer  "partner_eval"
     t.datetime "visit_date"
-    t.string   "url"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -64,6 +63,8 @@ ActiveRecord::Schema.define(version: 20160102074613) do
     t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "phone"
+    t.string   "url"
   end
 
 end

@@ -43,5 +43,7 @@ group :development, :test do
   gem 'spring'
 
 	gem 'carrierwave', '~> 0.10.0'
+	gem 'sprockets-rails', '2.3.3'
+
 end
 

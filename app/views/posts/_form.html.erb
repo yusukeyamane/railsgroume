@@ -61,73 +61,72 @@
   </div>
   <div class="field">
     <%= f.label :visit_date %><br>
-    <%= f.date_select :visit_date %>
+    <%= f.date_field :visit_date %>
   </div>
   <div class="field">
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
-  <%= fields_for @post.hashtag do |h| %>
-    <div class="field">
-      <%= h.label :couple %>
-      <%= h.check_box :couple, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :firstdate %>
-      <%= h.check_box :firstdate, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :onesidelove %>
-      <%= h.check_box :onesidelove, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :confession %>
-      <%= h.check_box :confession, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :lunch %>
-      <%= h.check_box :lunch, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :cafe %>
-      <%= h.check_box :cafe, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :dinner %>
-      <%= h.check_box :dinner, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :aniversary %>
-      <%= h.check_box :aniversary, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :oneyear_ani %>
-      <%= h.check_box :oneyear_ani, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :onemonth_ani %>
-      <%= h.check_box :onemonth_ani, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :xmas %>
-      <%= h.check_box :xmas, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :valentine %>
-      <%= h.check_box :valentine, {}, true, false %>
-    </div>
-    <div class="field">
-      <%= h.label :whiteday %>
-      <%= h.check_box :whiteday, {}, true, false %>
-    </div>
+  <%= field_set_tag 'ハッシュタグ' do %>
+    <%= fields_for @post.hashtag do |h| %>
+      <div class="field">
+        <%= h.hidden_field :post_id %>
+        <%= h.label :couple %>
+        <%= h.check_box :couple, { class: 'chk' }, "true", "false" %>
+      </div>
+      <div class="field">
+        <%= h.label :firstdate %>
+        <%= h.check_box :firstdate, { class: 'chk' }, "true", "false" %>
+      </div>
+      <div class="field">
+        <%= h.label :onesidelove %>
+        <%= h.check_box :onesidelove, { class: 'chk' }, "true", "false" %>
+      </div>
+      <div class="field">
+        <%= h.label :confession %>
+        <%= h.check_box :confession, { class: 'chk' }, true, false %>
+      </div>
+      <div class="field">
+        <%= h.label :lunch %>
+        <%= h.check_box :lunch, { class: 'chk' }, true, false %>
+      </div>
+      <div class="field">
+        <%= h.label :cafe %>
+        <%= h.check_box :cafe, { class: 'chk' }, true, false %>
+      </div>
+      <div class="field">
+        <%= h.label :dinner %>
+        <%= h.check_box :dinner, { class: 'chk' }, true, false %>
+      </div>
+      <div class="field">
+        <%= h.label :aniversary %>
+        <%= h.check_box :aniversary, { class: 'chk' }, true, false %>
+      </div>
+      <div class="field">
+        <%= h.label :oneyear_ani %>
+        <%= h.check_box :oneyear_ani, { class: 'chk' }, true, false %>
+      </div>
+      <div class="field">
+        <%= h.label :onemonth_ani %>
+        <%= h.check_box :onemonth_ani, { class: 'chk' }, true, false %>
+      </div>
+      <div class="field">
+        <%= h.label :xmas %>
+        <%= h.check_box :xmas, { class: 'chk' }, true, false %>
+      </div>
+      <div class="field">
+        <%= h.label :valentine %>
+        <%= h.check_box :valentine, { class: 'chk' }, true, false %>
+      </div>
+      <div class="field">
+        <%= h.label :whiteday %>
+        <%= h.check_box :whiteday, { class: 'chk' }, true, false %>
+      </div>
 
+    <% end %>
   <% end %>
 
-  <%= fields_for @post.photos do |p| %>
-    <%= p.file_field :file_name, multiple: true %>
-    <%= p.file_field :file_name, multiple: true %>
-    <%= p.file_field :file_name, multiple: true %>
-  <% end %>
+
 
   <div class="actions">
     <%= f.submit %>

@@ -15,8 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    @post.build_hashtag
-    3.times{@post.photos.build}
+    @post.create_hashtag
   end
 
   # GET /posts/1/edit
@@ -29,7 +28,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, notice: '投稿は正常に保存されました。' }
         format.json { render :show, status: :created, location: @post }
         logger.debug(@post)
       else
@@ -44,7 +43,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post, notice: '変更は正常に保存されました。' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -58,7 +57,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to posts_url, notice: '投稿は正常に削除されました。' }
       format.json { head :no_content }
     end
   end
@@ -82,7 +81,8 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      @hash_att = [:couple, :firstdate, :onesidelove, :confession, :lunch, :cafe, :dinner, :aniversary, :oneyear_ani, :onemonth_ani, :xmas, :valentine, :whiteday]
-      params.require(:post).permit(:titile, :user_id, :restaurant_id, :content, :time_zone, :amount, :total_eval, :quality_eval, :service_eval, :atomos_eval, :drink_eval, :partner_eval, :visit_date, :url, hashtag_attributes: @hash_att, photos_attributes: [:file_name])
+      params.require(:post).permit(:titile, :user_id, :restaurant_id, :content, :time_zone, :amount, :total_eval, :quality_eval, :service_eval, :atomos_eval, :drink_eval, :partner_eval, :visit_date, :url,
+        hashtag_attributes: [:post_id, :couple, :firstdate, :onesidelove, :confession, :lunch, :cafe, :dinner, :aniversary, :oneyear_ani, :onemonth_ani, :xmas, :valentine, :whiteday],
+        photos_attributes: [:post_id, :file_name])
     end
 end
