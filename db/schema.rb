@@ -11,22 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111032908) do
+ActiveRecord::Schema.define(version: 20160111065814) do
 
   create_table "hashtags", force: :cascade do |t|
-    t.boolean  "couple"
-    t.boolean  "firstdate"
-    t.boolean  "onesidelove"
-    t.boolean  "confession"
-    t.boolean  "lunch"
-    t.boolean  "cafe"
-    t.boolean  "dinner"
-    t.boolean  "aniversary"
-    t.boolean  "oneyear_ani"
-    t.boolean  "onemonth_ani"
-    t.boolean  "xmas"
-    t.boolean  "valentine"
-    t.boolean  "whiteday"
+    t.integer  "couple"
+    t.integer  "firstdate"
+    t.integer  "onesidelove"
+    t.integer  "confession"
+    t.integer  "lunch"
+    t.integer  "cafe"
+    t.integer  "dinner"
+    t.integer  "aniversary"
+    t.integer  "oneyear_ani"
+    t.integer  "onemonth_ani"
+    t.integer  "xmas"
+    t.integer  "valentine"
+    t.integer  "whiteday"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "post_id"

@@ -63,64 +63,61 @@
     <%= f.label :visit_date %><br>
     <%= f.date_field :visit_date %>
   </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
+  
   <%= field_set_tag 'ハッシュタグ' do %>
-    <%= fields_for @post.hashtag do |h| %>
+    <%= f.fields_for :hashtag do |h| %>
       <div class="field">
-        <%= h.hidden_field :post_id %>
+        <%= h.hidden_field :post_id, :value => @post.id %>
         <%= h.label :couple %>
-        <%= h.check_box :couple, { class: 'chk' }, "true", "false" %>
+        <%= h.check_box :couple %>
       </div>
       <div class="field">
         <%= h.label :firstdate %>
-        <%= h.check_box :firstdate, { class: 'chk' }, "true", "false" %>
+        <%= h.check_box :firstdate %>
       </div>
       <div class="field">
         <%= h.label :onesidelove %>
-        <%= h.check_box :onesidelove, { class: 'chk' }, "true", "false" %>
+        <%= h.check_box :onesidelove %>
       </div>
       <div class="field">
         <%= h.label :confession %>
-        <%= h.check_box :confession, { class: 'chk' }, true, false %>
+        <%= h.check_box :confession %>
       </div>
       <div class="field">
         <%= h.label :lunch %>
-        <%= h.check_box :lunch, { class: 'chk' }, true, false %>
+        <%= h.check_box :lunch %>
       </div>
       <div class="field">
         <%= h.label :cafe %>
-        <%= h.check_box :cafe, { class: 'chk' }, true, false %>
+        <%= h.check_box :cafe %>
       </div>
       <div class="field">
         <%= h.label :dinner %>
-        <%= h.check_box :dinner, { class: 'chk' }, true, false %>
+        <%= h.check_box :dinner %>
       </div>
       <div class="field">
         <%= h.label :aniversary %>
-        <%= h.check_box :aniversary, { class: 'chk' }, true, false %>
+        <%= h.check_box :aniversary %>
       </div>
       <div class="field">
         <%= h.label :oneyear_ani %>
-        <%= h.check_box :oneyear_ani, { class: 'chk' }, true, false %>
+        <%= h.check_box :oneyear_ani %>
       </div>
       <div class="field">
         <%= h.label :onemonth_ani %>
-        <%= h.check_box :onemonth_ani, { class: 'chk' }, true, false %>
+        <%= h.check_box :onemonth_ani %>
       </div>
       <div class="field">
         <%= h.label :xmas %>
-        <%= h.check_box :xmas, { class: 'chk' }, true, false %>
+        <%= h.check_box :xmas %>
       </div>
       <div class="field">
         <%= h.label :valentine %>
-        <%= h.check_box :valentine, { class: 'chk' }, true, false %>
+        <%= h.check_box :valentine %>
       </div>
       <div class="field">
         <%= h.label :whiteday %>
-        <%= h.check_box :whiteday, { class: 'chk' }, true, false %>
+        <%= h.check_box :whiteday %>
       </div>
 
     <% end %>

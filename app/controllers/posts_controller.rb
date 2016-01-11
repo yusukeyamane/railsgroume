@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    @post.create_hashtag
+    @post.build_hashtag
   end
 
   # GET /posts/1/edit
